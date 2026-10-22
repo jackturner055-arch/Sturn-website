@@ -1,37 +1,35 @@
-# STURN Distribution — Website v0.1
+# STURN Distribution — Redesign Release 1.0
 
-A responsive, static-first public website for STURN Distribution, an Australian-focused immersion-cooling technology and distribution business in development.
+A responsive, static-first redesign for STURN Distribution, an Australian-focused immersion-cooling technology and distribution business in development.
 
-## What this release includes
-- Responsive dark technical visual design and mobile navigation.
-- Sections covering immersion cooling, components, planned connected monitoring, partnerships, company context, enquiries and FAQs.
-- Accessible focus styles, skip link and reduced-motion support.
-- Static assets and simple Node.js server for the existing Render Web Service configuration.
-- `/ready` health-check endpoint.
-- No database, frontend framework, paid runtime library, or AI API dependency.
+## Included
+- Rebuilt homepage with clear navigation and commercial positioning.
+- Conceptual immersion tank illustration and single-phase / two-phase comparison.
+- Interactive, keyboard-operable system-layer explorer.
+- Illustrative monitoring dashboard with selectable chart metrics; all readings are demo data.
+- Introductory knowledge-centre cards, partner pathways, enquiry form and FAQs.
+- Responsive mobile navigation, skip link, visible keyboard focus and reduced-motion support.
+- Search/social metadata, SVG favicon and share-preview graphic.
+- Existing lightweight Node HTTP server pattern and `/ready` health-check route.
 
-## Important product limitations
-- The enquiry form opens an email draft in the visitor's email application. It does not submit to a server or store data. The email recipient is intentionally not configured; confirm the official enquiry email before launch.
-- Content intentionally avoids claiming confirmed suppliers, inventory, certifications, customers or a released monitoring platform.
-- Confirm company/legal details, privacy wording, contact details and domain before public promotion.
-- Google Fonts are loaded externally; the system font fallbacks remain available if the service is blocked.
+## Important truth-in-advertising notes
+The explorer and dashboard are conceptual. No live hardware, telemetry, supplier appointments, stock, product availability, certification or released SaaS is claimed. The contact form opens a `mailto:` draft and intentionally has no recipient configured. Confirm the official enquiry email before launch.
 
-## Render configuration
-The Render service shown in the setup screenshots is a Node Web Service with:
-- Build command: `npm install`
-- Start command: `npm start`
-- Health check path: `/ready`
-- Branch: `main`
-- Auto-deploy: On Commit
-
-This repository includes `package.json` and `server.js` to match those commands. The server uses Render's `PORT` environment variable and listens on `0.0.0.0`. No environment variables or secrets are required for the initial website.
+## Requirements and Render
+- Node.js 20 or later.
+- `npm install` (there are no runtime dependencies).
+- `npm start`.
+- Render health-check path: `/ready`.
+- Keep the existing Render service on the `main` branch and Node runtime. No new service or paid API is needed.
 
 ## Local preview
-Install Node.js 20 or later, then from this directory run:
+Open PowerShell in this folder and run:
+
 ```powershell
 npm start
 ```
-Open `http://localhost:3000`.
 
-## Workflow
-Read `AGENTS.md` and `docs/WORKFLOW.md`. Keep changes small and reviewable, test before merging, and never commit credentials or `.env` files.
+Then visit http://localhost:3000. Press Ctrl+C in PowerShell to stop the server.
+
+## Publishing
+See `PUBLISH-REDESIGN.ps1` in the parent ZIP. The script backs up the existing website files, copies this release into the existing repository, runs syntax checks, creates a branch and pushes it. It does not merge to `main` automatically. Review and merge the pull request to trigger the existing Render deployment.
