@@ -181,6 +181,54 @@
       </div>
     </section>
 
+
+    <section class="saas-explorer section-pad" id="saas-explorer">
+      <div class="saas-heading">
+        <div>
+          <p class="eyebrow blue">SAAS / 05 — SOFTWARE AS A SERVICE</p>
+          <h2>From physical system<br>to <span>operational insight.</span></h2>
+        </div>
+        <p>Explore how a potential software service could bring sensor readings and system context into one view. Select a layer to highlight its connections and inspect its role.</p>
+      </div>
+      <div class="explorer-shell">
+        <div class="explorer-visual">
+          <div class="explorer-toolbar"><span><i class="live-dot"></i> SYSTEM ARCHITECTURE EXPLORER</span><button type="button" class="explorer-reset" id="explorer-reset">Reset view ↺</button></div>
+          <div class="isometric-stage" id="isometric-stage" aria-label="Interactive conceptual isometric cooling system diagram">
+            <svg class="system-links" viewBox="0 0 760 510" role="img" aria-label="Connections between cooling system layers">
+              <path class="link link-fluid" data-link="fluid thermal" d="M160 270 L285 340 L425 270 L560 335"/>
+              <path class="link link-thermal" data-link="thermal sensing" d="M285 340 L285 220 L425 150 L560 220"/>
+              <path class="link link-filtration" data-link="filtration fluid" d="M160 270 L160 190 L285 120 L425 190"/>
+              <path class="link link-sensing" data-link="sensing saas" d="M425 150 L560 80 L650 130 L560 220"/>
+              <path class="link link-saas" data-link="saas fluid thermal filtration sensing" d="M560 80 L650 130 L650 250 L560 335"/>
+              <path class="link link-neutral" data-link="fluid thermal filtration sensing saas" d="M160 270 L285 220 L425 270 L560 220"/>
+            </svg>
+            <button class="iso-node node-fluid" type="button" data-layer="fluid" aria-pressed="false"><span class="node-code">01</span><strong>Fluid circuit</strong><small>Pumps · pipes</small></button>
+            <button class="iso-node node-thermal" type="button" data-layer="thermal" aria-pressed="false"><span class="node-code">02</span><strong>Thermal</strong><small>Heat exchange</small></button>
+            <button class="iso-node node-filtration" type="button" data-layer="filtration" aria-pressed="false"><span class="node-code">03</span><strong>Filtration</strong><small>Fluid quality</small></button>
+            <button class="iso-node node-sensing" type="button" data-layer="sensing" aria-pressed="false"><span class="node-code">04</span><strong>Sensors</strong><small>Measure & detect</small></button>
+            <button class="iso-node node-saas" type="button" data-layer="saas" aria-pressed="true"><span class="node-code">05</span><strong>SaaS layer</strong><small>Dashboard · alerts</small></button>
+            <div class="stage-caption">ILLUSTRATIVE ARCHITECTURE / NOT A DEPLOYED STURN SYSTEM</div>
+          </div>
+          <div class="layer-legend"><span><i class="legend-blue"></i> Fluid</span><span><i class="legend-orange"></i> Thermal</span><span><i class="legend-teal"></i> Filtration</span><span><i class="legend-violet"></i> Data & software</span></div>
+        </div>
+        <aside class="explorer-detail" aria-live="polite" aria-atomic="true">
+          <p class="eyebrow blue" id="detail-kicker">LAYER 05 / SOFTWARE</p>
+          <h3 id="detail-title">SaaS monitoring layer</h3>
+          <p id="detail-description">A potential software service could turn selected sensor readings into a shared operational view, with trend history and configurable alerts.</p>
+          <div class="detail-rule"></div>
+          <h4>Components and functions</h4>
+          <ul id="detail-components">
+            <li>Monitoring dashboard</li><li>Trend history and event log</li><li>Configurable alert rules</li>
+          </ul>
+          <h4>Connections</h4>
+          <p class="detail-connection" id="detail-connection">Receives data from instrumentation and presents context to an operator. Actual integrations depend on the selected hardware and software partners.</p>
+          <div class="detail-status"><span class="blue-dot"></span> CONCEPT EXPLORER — SIMULATED, NOT CONNECTED TO HARDWARE</div>
+          <button class="button button-outline detail-next" type="button" id="detail-next">Explore next layer ↗</button>
+        </aside>
+      </div>
+      <p class="explorer-note">SaaS means Software as a Service. The architecture shown is a conceptual example to explain possible integration points; STURN's software offering, suppliers, telemetry integrations and product specifications are not yet confirmed.</p>
+    </section>
+
     <section class="software section-pad" id="software">
       <div class="software-visual" aria-hidden="true">
         <div class="grid-overlay"></div><div class="orbit orbit-a"></div><div class="orbit orbit-b"></div><div class="orbit orbit-c"></div>
