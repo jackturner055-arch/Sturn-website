@@ -1,0 +1,13 @@
+{
+  "name": "sturn-distribution-website",
+  "version": "0.1.0",
+  "private": true,
+  "description": "STURN Distribution public website",
+  "scripts": {
+    "start": "node server.js",
+    "check": "node --check server.js && node --check script.js"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

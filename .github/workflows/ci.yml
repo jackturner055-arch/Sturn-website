@@ -1,0 +1,32 @@
+name: Repository checks
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  basic-checks:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          fetch-depth: 0
+      - name: Check whitespace errors in proposed changes
+        shell: bash
+        run: |
+          if [ "$GITHUB_EVENT_NAME" = "pull_request" ]; then
+            git diff --check "origin/${GITHUB_BASE_REF}...HEAD"
+          elif git rev-parse HEAD^ >/dev/null 2>&1; then
+            git diff --check HEAD^ HEAD
+          fi
+      - name: Check required project instructions exist
+        run: |
+          test -f AGENTS.md
+          test -f docs/WORKFLOW.md
+          test -f docs/RESEARCH_PLAYBOOK.md

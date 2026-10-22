@@ -1,0 +1,30 @@
+# Secrets and local environment
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+secrets/
+credentials/
+
+# Dependencies and build output
+node_modules/
+dist/
+build/
+.next/
+.astro/
+coverage/
+.venv/
+venv/
+__pycache__/
+
+# Editor and operating system
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Local logs and temporary files
+*.log
+*.tmp
+*.bak
