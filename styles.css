@@ -99,3 +99,38 @@
  .hero-status{width:145px!important}
 }
 @media(prefers-reduced-motion:reduce){.hero-callout,.hero-status .status-wave span{animation:none!important}}
+
+
+/* Full-viewport cinematic hero artwork: preserve the complete 16:9 composition. */
+html,body{min-height:100%;background:#02070d}
+.site-header{display:none!important}
+.hero{
+  display:block!important;
+  box-sizing:border-box!important;
+  width:100%!important;
+  max-width:none!important;
+  min-height:100svh!important;
+  height:100svh!important;
+  margin:0!important;
+  padding:0!important;
+  border:0!important;
+  overflow:hidden!important;
+  position:relative!important;
+  isolation:isolate!important;
+  background-color:#02070d!important;
+  background-image:url('https://a5af41f7-aadb-4b4c-b713-045f108de1cb.sandbox.floot.app/_cdn/static/f731a66a-d771-4fc6-9c33-43058365bfb1-sturn-immersion-hero-2560.webp')!important;
+  background-repeat:no-repeat!important;
+  background-position:center center!important;
+  background-size:cover!important;
+}
+.hero-grid,.hero-copy,.hero-visual{display:none!important}
+.hero:before,.hero:after{display:none!important}
+.hero.section-wrap{width:100%!important;max-width:none!important;padding-left:0!important;padding-right:0!important}
+body>main{margin:0!important;padding:0!important}
+.skip-link{z-index:1000}
+@media (min-aspect-ratio: 16/9){
+ .hero{background-size:100% 100%!important}
+}
+@media (max-aspect-ratio: 4/5){
+ .hero{background-size:auto 100%!important;background-position:center center!important}
+}
