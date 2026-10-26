@@ -26,6 +26,29 @@
   const year = $('#year');
   if (year) year.textContent = new Date().getFullYear();
 
+
+  // Hero parallax is intentionally subtle and only enabled for pointer devices when motion is allowed.
+  const heroVisual = $('.hero-visual');
+  const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
+  if (heroVisual && window.matchMedia('(hover: hover) and (pointer: fine)').matches && !motionPreference.matches) {
+    let pointerFrame = 0;
+    heroVisual.addEventListener('pointermove', event => {
+      if (pointerFrame) cancelAnimationFrame(pointerFrame);
+      pointerFrame = requestAnimationFrame(() => {
+        const bounds = heroVisual.getBoundingClientRect();
+        const x = (event.clientX - bounds.left) / bounds.width - 0.5;
+        const y = (event.clientY - bounds.top) / bounds.height - 0.5;
+        heroVisual.style.setProperty('--pointer-x', (x * 8).toFixed(2) + 'px');
+        heroVisual.style.setProperty('--pointer-y', (y * 8).toFixed(2) + 'px');
+        pointerFrame = 0;
+      });
+    });
+    heroVisual.addEventListener('pointerleave', () => {
+      heroVisual.style.setProperty('--pointer-x', '0px');
+      heroVisual.style.setProperty('--pointer-y', '0px');
+    });
+  }
+
   const layerData = {
     fluid: {kicker:'LAYER 01 / FLUID CIRCUIT',title:'Fluid circulation',description:'Moves compatible dielectric fluid through the tank and heat-rejection loop in a single-phase example. Final design depends on the selected architecture.',components:['Circulation pump','Pipes, hoses and fittings','Flow meter and isolation valves'],connection:'Flow and pressure readings may help an operator understand circulation. Equipment and operating ranges must be confirmed with the system manufacturer.',next:'thermal'},
     thermal: {kicker:'LAYER 02 / THERMAL',title:'Heat transfer',description:'Transfers heat from the immersion tank into a suitable external cooling loop. This conceptual view is not a system sizing or engineering design.',components:['Heat exchanger','Temperature probes','Heat-rejection loop'],connection:'Temperature measurements can show how conditions change across the loop. Sensor locations and limits are application-specific.',next:'filtration'},
