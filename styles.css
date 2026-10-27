@@ -267,3 +267,50 @@ body>main{margin:0!important;padding:0!important}
 @media(prefers-reduced-motion:reduce){
  .phase-dark .vapour-dash,.phase-dark .phase-diagram svg>g[fill="#ffc08d"] circle,.phase-dark .phase-diagram svg>path[stroke="#c4d0da"],.phase-dark .phase-diagram svg>path[stroke="#c6a7f6"]{animation:none!important}
 }
+
+
+/* Interactive component-family cards and small animated technical illustrations. */
+.interactive-components{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;align-items:start}
+.component-item{min-width:0;border:1px solid rgba(136,166,188,.2);background:rgba(7,16,25,.45);border-radius:8px;overflow:hidden;transition:border-color .25s ease,background .25s ease}
+.component-item:hover,.component-item.is-active{border-color:rgba(74,190,246,.55);background:rgba(9,24,36,.78)}
+.component-toggle{width:100%;min-height:84px;display:flex;align-items:center;gap:13px;text-align:left;padding:16px 17px;background:transparent;border:0;color:inherit;cursor:pointer}
+.component-toggle:focus-visible{outline:2px solid #58caff;outline-offset:-3px;border-radius:7px}
+.component-number{flex:0 0 34px;width:34px;height:34px;display:grid;place-items:center;border:1px solid rgba(90,199,255,.55);border-radius:50%;color:#66d1ff;font:600 11px var(--mono);transition:background .25s ease,color .25s ease,box-shadow .25s ease}
+.component-item.is-active .component-number{background:#0c9fdf;color:#04111a;box-shadow:0 0 18px rgba(30,171,237,.25)}
+.component-title{display:flex;flex:1;flex-direction:column;gap:5px;min-width:0}
+.component-title strong{font-size:13px;line-height:1.4;font-weight:600;color:#e8f1f7}
+.component-title small{font-size:11px;line-height:1.4;color:#90a9bb}
+.component-chevron{color:#60cfff;font-size:17px;transition:transform .25s ease}
+.component-item.is-active .component-chevron{transform:rotate(45deg)}
+.component-detail{padding:0 17px 17px;animation:component-reveal .38s ease both}
+.component-detail[hidden]{display:none!important}
+.component-visual{height:140px;border:1px solid rgba(72,153,191,.17);border-radius:6px;background:radial-gradient(ellipse at 50% 60%,rgba(16,113,159,.17),rgba(3,10,17,.18) 72%);overflow:hidden;display:grid;place-items:center}
+.component-visual svg{width:100%;height:100%;max-width:320px;overflow:visible}
+.component-visual svg path,.component-visual svg rect,.component-visual svg circle{vector-effect:non-scaling-stroke}
+.tank-edge{fill:#1b2d3a;stroke:#a7c1d1;stroke-width:1.2}
+.tank-fluid{fill:rgba(28,167,224,.32);stroke:#32c7ff;stroke-width:1}
+.tank-server{fill:#0b1722;stroke:#85cbe8;stroke-width:1.2}
+.tank-server path{fill:none;stroke:#61c8f4;stroke-width:1}
+.component-flow{fill:none;stroke:#31c7ff;stroke-width:2.4;stroke-linecap:round;stroke-dasharray:5 9;animation:component-flow-move 2.8s linear infinite;filter:drop-shadow(0 0 3px rgba(37,182,255,.5))}
+.fluid-vessel{fill:rgba(7,19,29,.8);stroke:#9cb8c9;stroke-width:1.4}
+.fluid-level{fill:rgba(32,173,232,.4);stroke:#39caff;stroke-width:1.2;animation:fluid-level-breathe 3s ease-in-out infinite}
+.fluid-bubbles circle{fill:#85e7ff;animation:component-bubble-rise 2.8s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+.fluid-bubbles circle:nth-child(2){animation-delay:-.8s}.fluid-bubbles circle:nth-child(3){animation-delay:-1.5s}.fluid-bubbles circle:nth-child(4){animation-delay:-2.1s}
+.exchanger-frame{fill:rgba(13,29,42,.85);stroke:#91adbe;stroke-width:1.5}
+.exchanger-coils{fill:none;stroke:#46caff;stroke-width:4;stroke-linejoin:round;stroke-dasharray:9 4;animation:component-flow-move 3s linear infinite}
+.pump-outer{fill:#172c3b;stroke:#89b9d1;stroke-width:1.5}.pump-inner{fill:#41caff;stroke:#c2f2ff;stroke-width:1}.pump-blade{fill:#50bde9;stroke:#b8ecff;stroke-width:1}
+.filter-body{fill:rgba(22,62,82,.8);stroke:#7ecbe9;stroke-width:1.5}
+.filter-particles circle{fill:#ffc08d;animation:component-filter-drift 2.6s ease-in-out infinite}.filter-particles circle:nth-child(2){animation-delay:-.7s}.filter-particles circle:nth-child(3){animation-delay:-1.3s}.filter-particles circle:nth-child(4){animation-delay:-1.9s}
+.sensor-wire{fill:none;stroke:#55c9f8;stroke-width:1.7;stroke-dasharray:5 6;animation:component-flow-move 3.4s linear infinite}
+.sensor-node{fill:#5cd5ff;stroke:#d6f7ff;stroke-width:1;animation:sensor-pulse 2s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+.sensor-node:nth-of-type(3){animation-delay:-.6s}.sensor-node:nth-of-type(4){animation-delay:-1.2s}
+.sensor-chip{fill:#0c2333;stroke:#59c9fa;stroke-width:1.5}.sensor-mark{fill:none;stroke:#7be0ff;stroke-width:2}
+.component-caption{display:block;margin-top:10px;color:#7796a9;font:8px var(--mono);letter-spacing:.1em}
+@keyframes component-reveal{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
+@keyframes component-flow-move{to{stroke-dashoffset:-56}}
+@keyframes component-bubble-rise{0%,100%{transform:translateY(2px);opacity:.5}50%{transform:translateY(-8px);opacity:1}}
+@keyframes fluid-level-breathe{0%,100%{opacity:.72}50%{opacity:1}}
+@keyframes component-filter-drift{0%,100%{transform:translateY(-2px);opacity:.5}50%{transform:translateY(5px);opacity:1}}
+@keyframes sensor-pulse{0%,100%{opacity:.55;filter:drop-shadow(0 0 0 rgba(85,201,248,0))}50%{opacity:1;filter:drop-shadow(0 0 5px rgba(85,201,248,.7))}}
+@media(max-width:700px){.interactive-components{grid-template-columns:1fr;gap:10px}.component-toggle{min-height:76px;padding:13px}.component-detail{padding:0 13px 13px}.component-visual{height:130px}}
+@media(prefers-reduced-motion:reduce){.component-detail,.component-flow,.fluid-level,.fluid-bubbles circle,.exchanger-coils,.filter-particles circle,.sensor-wire,.sensor-node{animation:none!important;transition:none!important}}
