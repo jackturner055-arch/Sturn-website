@@ -208,3 +208,31 @@ body>main{margin:0!important;padding:0!important}
  .hero .button{width:100%!important}
 }
 @media(prefers-reduced-motion:reduce){.hero-copy{transition:none!important}}
+
+
+/* Subtle simulated coolant movement over the cinematic hero image. */
+.hero-fluid-motion{
+  position:absolute!important;inset:0!important;z-index:3!important;
+  display:block!important;overflow:hidden!important;pointer-events:none!important;
+  opacity:.92;mix-blend-mode:screen;
+}
+.hero-fluid-motion svg{display:block;width:100%;height:100%;overflow:visible}
+.fluid-trace{
+  stroke:#23baff;stroke-width:3.2;stroke-dasharray:7 20;
+  opacity:.52;filter:drop-shadow(0 0 5px rgba(0,174,255,.75));
+  animation:sturn-fluid-flow 2.8s linear infinite;
+}
+.fluid-trace-a{stroke:#1cbaff;stroke-width:4;opacity:.82;animation-duration:2.4s}
+.fluid-trace-b{stroke:#38c7ff;stroke-width:3.2;opacity:.68;animation-duration:3.1s}
+.fluid-trace-c{stroke:#168dff;stroke-width:3.5;opacity:.66;animation-duration:2.7s}
+.fluid-trace-d{stroke:#21baff;stroke-width:2.4;opacity:.38;animation-duration:4s}
+.fluid-particles{fill:#a6f0ff;opacity:.95}
+@keyframes sturn-fluid-flow{to{stroke-dashoffset:-108}}
+@media(max-width:900px){
+ .hero-fluid-motion{opacity:.72}
+ .fluid-trace{stroke-width:4.5}
+}
+@media(prefers-reduced-motion:reduce){
+ .fluid-trace{animation:none!important;stroke-dasharray:3 18!important}
+ .fluid-particles{display:none!important}
+}
