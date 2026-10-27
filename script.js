@@ -72,6 +72,29 @@
     const svg = $('#trend-chart'); if (svg) svg.setAttribute('aria-label', `${button.textContent} demonstration trend chart. Simulated values only.`);
   }));
 
+  // Accessible single-open accordion for the six provisional component families.
+  const componentItems = $('.component-item');
+  componentItems.forEach(item => {
+    const toggle = $('.component-toggle', item);
+    const detail = $('.component-detail', item);
+    if (!toggle || !detail) return;
+    toggle.addEventListener('click', () => {
+      const shouldOpen = toggle.getAttribute('aria-expanded') !== 'true';
+      componentItems.forEach(other => {
+        const otherToggle = $('.component-toggle', other);
+        const otherDetail = $('.component-detail', other);
+        other.classList.remove('is-active');
+        if (otherToggle) otherToggle.setAttribute('aria-expanded', 'false');
+        if (otherDetail) otherDetail.hidden = true;
+      });
+      if (shouldOpen) {
+        item.classList.add('is-active');
+        toggle.setAttribute('aria-expanded', 'true');
+        detail.hidden = false;
+      }
+    });
+  });
+
   const typeSelect = $('#enquiry-type');
   $$('[data-enquiry]').forEach(link => link.addEventListener('click', () => {
     if (typeSelect) {
