@@ -13,9 +13,9 @@
   <meta name="twitter:card" content="summary_large_image">
   <title>STURN Distribution | Immersion Cooling Infrastructure</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="preload" href="styles.css?v=handover-01" as="style">
-  <link rel="stylesheet" href="styles.css?v=hero-live-02">
-  <script src="script.js?v=hero-live-02" defer></script>
+  <link rel="preload" href="styles.css?v=fluid-motion-01" as="style">
+  <link rel="stylesheet" href="styles.css?v=fluid-motion-01">
+  <script src="script.js?v=fluid-motion-01" defer></script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -29,6 +29,26 @@
 <main id="main">
   <section class="hero section-wrap" id="home" aria-labelledby="hero-title">
     <div class="hero-grid" aria-hidden="true"></div>
+    <div class="hero-fluid-motion" aria-hidden="true">
+      <svg viewBox="0 0 1512 768" preserveAspectRatio="none" focusable="false">
+        <defs>
+          <filter id="fluid-glow"><feGaussianBlur stdDeviation="3.5" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+          <linearGradient id="fluid-light" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#087cff" stop-opacity=".05"/><stop offset=".45" stop-color="#29c8ff"/><stop offset="1" stop-color="#087cff" stop-opacity=".18"/></linearGradient>
+        </defs>
+        <g class="fluid-traces" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path class="fluid-trace fluid-trace-a" d="M574 480 C620 510 665 542 728 560 S850 610 930 640 S1010 666 1064 672"/>
+          <path class="fluid-trace fluid-trace-b" d="M1014 222 C1090 219 1154 222 1210 224 S1324 229 1376 246 L1390 270 L1390 412"/>
+          <path class="fluid-trace fluid-trace-c" d="M1378 414 L1374 500 C1372 540 1355 568 1324 588"/>
+          <path class="fluid-trace fluid-trace-d" d="M657 316 C720 341 778 362 844 380 S953 412 1005 428"/>
+        </g>
+        <g class="fluid-particles" filter="url(#fluid-glow)">
+          <circle r="3.2"><animateMotion dur="5.8s" repeatCount="indefinite" path="M574 480 C620 510 665 542 728 560 S850 610 930 640 S1010 666 1064 672"/></circle>
+          <circle r="2.3" opacity=".8"><animateMotion dur="7.4s" begin="-3s" repeatCount="indefinite" path="M574 480 C620 510 665 542 728 560 S850 610 930 640 S1010 666 1064 672"/></circle>
+          <circle r="3"><animateMotion dur="6.5s" begin="-2s" repeatCount="indefinite" path="M1014 222 C1090 219 1154 222 1210 224 S1324 229 1376 246 L1390 270 L1390 412"/></circle>
+          <circle r="2.4" opacity=".8"><animateMotion dur="7s" begin="-4s" repeatCount="indefinite" path="M1378 414 L1374 500 C1372 540 1355 568 1324 588"/></circle>
+        </g>
+      </svg>
+    </div>
     <div class="hero-copy">
       <p class="eyebrow"><span class="eyebrow-line"></span> AUSTRALIAN IMMERSION COOLING / IN DEVELOPMENT</p>
       <h1 id="hero-title">Immersion cooling.<br><span>Connected by design.</span></h1>
