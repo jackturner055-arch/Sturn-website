@@ -403,3 +403,15 @@ section#components.components.section-wrap.section-pad{
 .mini-ripple-two{animation-delay:-1.2s}
 @media(max-width:760px){#components .component-item[data-component="1"] .component-toggle{grid-template-columns:36px minmax(0,1fr) 60px 18px!important}.dielectric-mini{width:60px;height:48px}}
 @media(prefers-reduced-motion:reduce){.mini-stream,.mini-ripple{animation:none!important}.mini-ripple{opacity:.45}}
+
+
+/* Keep the dielectric-fluid thumbnail immediately before the arrow. */
+#components .component-item[data-component="1"] .component-toggle{
+  grid-template-columns:40px minmax(0,1fr) 20px 82px!important;
+}
+#components .component-item[data-component="1"] .component-title{grid-column:2!important}
+#components .component-item[data-component="1"] .component-chevron{grid-column:3!important;grid-row:1!important}
+#components .component-item[data-component="1"] .dielectric-mini{grid-column:4!important;grid-row:1!important}
+@media(max-width:760px){
+ #components .component-item[data-component="1"] .component-toggle{grid-template-columns:36px minmax(0,1fr) 18px 60px!important}
+}
