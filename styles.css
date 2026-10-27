@@ -366,3 +366,26 @@ section#components.components.section-wrap.section-pad{
 @media(min-width:1100px){
   #components .interactive-components{grid-template-columns:repeat(2,minmax(0,1fr))!important}
 }
+
+
+/* Dielectric fluid: animated bottle pour, falling stream and expanding ripples. */
+.dielectric-pour-visual{background:radial-gradient(ellipse at 50% 82%,rgba(24,143,199,.22),rgba(3,10,17,.15) 68%)!important}
+.dielectric-pour-visual svg{max-width:360px!important}
+.bottle-glass{fill:url(#fluid-glass);stroke:#b9e9ff;stroke-width:1.5}
+.bottle-neck{fill:rgba(185,234,255,.3);stroke:#d5f5ff;stroke-width:1.2}
+.bottle-fluid{fill:rgba(54,188,242,.55);stroke:#68d9ff;stroke-width:.8}
+.bottle-glint{fill:none;stroke:#fff;stroke-width:1.7;stroke-linecap:round;opacity:.85}
+.pour-shadow{fill:rgba(0,0,0,.24)}
+.pour-stream-back{fill:none;stroke:rgba(38,169,235,.3);stroke-width:10;stroke-linecap:round;filter:blur(2px)}
+.pour-stream{fill:none;stroke:url(#pour-stream);stroke-width:6;stroke-linecap:round;stroke-dasharray:16 5;animation:dielectric-stream 1.15s linear infinite;filter:drop-shadow(0 0 4px rgba(65,194,255,.7))}
+.pour-stream-highlight{fill:none;stroke:#e3fbff;stroke-width:1.2;stroke-linecap:round;stroke-dasharray:8 12;animation:dielectric-stream 1.8s linear infinite;opacity:.9}
+.pour-pool{fill:rgba(24,151,207,.43);stroke:#56cfff;stroke-width:1}
+.pour-ripple{fill:none;stroke:#9deaff;stroke-width:1.2;transform-box:fill-box;transform-origin:center;animation:dielectric-ripple 2.4s ease-out infinite}
+.ripple-two{animation-delay:-.8s}.ripple-three{animation-delay:-1.6s}
+.pour-sparkles{fill:#d8f8ff;filter:drop-shadow(0 0 3px #43c9ff)}
+.pour-sparkles circle{animation:dielectric-glint 1.8s ease-in-out infinite}
+.pour-sparkles circle:nth-child(2){animation-delay:-.6s}.pour-sparkles circle:nth-child(3){animation-delay:-1.1s}
+@keyframes dielectric-stream{to{stroke-dashoffset:-42}}
+@keyframes dielectric-ripple{0%{transform:scaleX(.72);opacity:.85}100%{transform:scaleX(1.28);opacity:0}}
+@keyframes dielectric-glint{0%,100%{opacity:.25;transform:translateY(2px)}50%{opacity:1;transform:translateY(-3px)}}
+@media(prefers-reduced-motion:reduce){.pour-stream,.pour-stream-highlight,.pour-ripple,.pour-sparkles circle{animation:none!important}.pour-ripple{opacity:.45}}
