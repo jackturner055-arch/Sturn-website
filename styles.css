@@ -405,13 +405,17 @@ section#components.components.section-wrap.section-pad{
 @media(prefers-reduced-motion:reduce){.mini-stream,.mini-ripple{animation:none!important}.mini-ripple{opacity:.45}}
 
 
-/* Keep the dielectric-fluid thumbnail immediately before the arrow. */
+/* Final explicit order: number | label | animated thumbnail | arrow. */
 #components .component-item[data-component="1"] .component-toggle{
-  grid-template-columns:40px minmax(0,1fr) 20px 82px!important;
+  display:grid!important;
+  grid-template-columns:40px minmax(0,1fr) 82px 20px!important;
 }
-#components .component-item[data-component="1"] .component-title{grid-column:2!important}
-#components .component-item[data-component="1"] .component-chevron{grid-column:3!important;grid-row:1!important}
-#components .component-item[data-component="1"] .dielectric-mini{grid-column:4!important;grid-row:1!important}
+#components .component-item[data-component="1"] .component-number{grid-column:1!important;grid-row:1!important}
+#components .component-item[data-component="1"] .component-title{grid-column:2!important;grid-row:1!important}
+#components .component-item[data-component="1"] .dielectric-mini{grid-column:3!important;grid-row:1!important;justify-self:center!important}
+#components .component-item[data-component="1"] .component-chevron{grid-column:4!important;grid-row:1!important;justify-self:end!important}
 @media(max-width:760px){
- #components .component-item[data-component="1"] .component-toggle{grid-template-columns:36px minmax(0,1fr) 18px 60px!important}
+ #components .component-item[data-component="1"] .component-toggle{grid-template-columns:36px minmax(0,1fr) 60px 18px!important}
+ #components .component-item[data-component="1"] .dielectric-mini{grid-column:3!important}
+ #components .component-item[data-component="1"] .component-chevron{grid-column:4!important}
 }
