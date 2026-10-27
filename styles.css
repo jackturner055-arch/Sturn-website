@@ -236,3 +236,34 @@ body>main{margin:0!important;padding:0!important}
  .fluid-trace{animation:none!important;stroke-dasharray:3 18!important}
  .fluid-particles{display:none!important}
 }
+
+
+/* Two-phase diagram: gently animate vapour rising and condensate returning. */
+.phase-dark .phase-diagram svg{overflow:visible}
+.phase-dark .vapour-dash{
+  stroke-dasharray:4 8!important;
+  animation:phase-vapour-rise 2.2s linear infinite, vapour 3.8s ease-in-out infinite!important;
+  filter:drop-shadow(0 0 2px rgba(255,177,125,.3));
+}
+.phase-dark .phase-diagram svg>g[fill="#ffc08d"] circle{
+  animation:phase-bubble-rise 2.8s ease-in-out infinite;
+  transform-box:fill-box;
+  transform-origin:center;
+}
+.phase-dark .phase-diagram svg>g[fill="#ffc08d"] circle:nth-child(1){animation-delay:-.7s}
+.phase-dark .phase-diagram svg>g[fill="#ffc08d"] circle:nth-child(2){animation-delay:-1.6s}
+.phase-dark .phase-diagram svg>g[fill="#ffc08d"] circle:nth-child(3){animation-delay:-2.2s}
+.phase-dark .phase-diagram svg>path[stroke="#c4d0da"]{
+  animation:phase-condenser-glow 4s ease-in-out infinite;
+}
+.phase-dark .phase-diagram svg>path[stroke="#c6a7f6"]{
+  stroke-dasharray:3 7!important;
+  animation:phase-condensate-return 2.4s linear infinite;
+}
+@keyframes phase-vapour-rise{to{stroke-dashoffset:-48}}
+@keyframes phase-bubble-rise{0%,100%{transform:translateY(2px);opacity:.65}50%{transform:translateY(-7px);opacity:1}}
+@keyframes phase-condenser-glow{0%,100%{filter:drop-shadow(0 0 0 rgba(198,167,246,0));opacity:.8}50%{filter:drop-shadow(0 0 5px rgba(198,167,246,.55));opacity:1}}
+@keyframes phase-condensate-return{to{stroke-dashoffset:-30}}
+@media(prefers-reduced-motion:reduce){
+ .phase-dark .vapour-dash,.phase-dark .phase-diagram svg>g[fill="#ffc08d"] circle,.phase-dark .phase-diagram svg>path[stroke="#c4d0da"],.phase-dark .phase-diagram svg>path[stroke="#c6a7f6"]{animation:none!important}
+}
