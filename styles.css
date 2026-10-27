@@ -419,3 +419,34 @@ section#components.components.section-wrap.section-pad{
  #components .component-item[data-component="1"] .dielectric-mini{grid-column:3!important}
  #components .component-item[data-component="1"] .component-chevron{grid-column:4!important}
 }
+
+
+/* Heat-exchanger illustration: cold blue inlet, warm orange outlet, animated flow. */
+#components .component-item[data-component="2"] .component-toggle{grid-template-columns:40px minmax(0,1fr) 82px 20px!important}
+#components .component-item[data-component="2"] .component-number{grid-column:1!important;grid-row:1!important}
+#components .component-item[data-component="2"] .component-title{grid-column:2!important;grid-row:1!important}
+#components .component-item[data-component="2"] .heat-mini{grid-column:3!important;grid-row:1!important;justify-self:center!important}
+#components .component-item[data-component="2"] .component-chevron{grid-column:4!important;grid-row:1!important;justify-self:end!important}
+.heat-mini{display:grid;place-items:center;width:82px;height:58px;border:1px solid rgba(72,190,242,.2);border-radius:6px;background:radial-gradient(ellipse at 50% 50%,rgba(18,100,130,.2),rgba(3,10,17,.15) 72%);overflow:hidden}
+.heat-mini svg{width:100%;height:100%;overflow:visible}
+.heat-core{fill:url(#heat-body);stroke:#80dfff;stroke-width:1.5}
+.heat-core-inner{fill:rgba(8,17,27,.7);stroke:rgba(130,205,232,.5);stroke-width:1}
+.heat-fin{fill:none;stroke:#65c8e9;stroke-width:1.8;stroke-linecap:round}
+.heat-cold-pipe{fill:none;stroke:#13baff;stroke-width:5;stroke-linecap:round;filter:drop-shadow(0 0 4px rgba(19,186,255,.7))}
+.heat-hot-pipe{fill:none;stroke:#ff6a2c;stroke-width:5;stroke-linecap:round;filter:drop-shadow(0 0 4px rgba(255,106,44,.7))}
+.heat-cold-flow{fill:none;stroke:#a8efff;stroke-width:2.5;stroke-linecap:round;stroke-dasharray:9 9;animation:heat-flow 1.5s linear infinite}
+.heat-hot-flow{fill:none;stroke:#ffd19b;stroke-width:2.5;stroke-linecap:round;stroke-dasharray:9 9;animation:heat-flow 1.5s linear infinite reverse}
+.heat-exchanger-visual{background:radial-gradient(ellipse at 50% 50%,rgba(19,93,126,.22),rgba(3,10,17,.15) 72%)!important}
+.heat-exchanger-visual .heat-core{fill:url(#heat-body)}
+.heat-exchanger-visual .heat-fin{stroke-width:2.2;stroke-dasharray:12 5;animation:heat-fin-pulse 2.4s linear infinite}
+.heat-exchanger-visual .heat-cold-pipe,.heat-exchanger-visual .heat-hot-pipe{stroke-width:6}
+.heat-sparks circle{fill:#ffd8a6;filter:drop-shadow(0 0 4px #ff7b3c);animation:heat-spark 1.8s ease-in-out infinite}
+.heat-sparks circle:nth-child(2){animation-delay:-.5s}.heat-sparks circle:nth-child(3){animation-delay:-1s}.heat-sparks circle:nth-child(4){animation-delay:-1.4s}
+@keyframes heat-flow{to{stroke-dashoffset:-36}}
+@keyframes heat-fin-pulse{to{stroke-dashoffset:-34}}
+@keyframes heat-spark{0%,100%{opacity:.25;transform:translateY(2px)}50%{opacity:1;transform:translateY(-2px)}}
+@media(max-width:760px){
+ #components .component-item[data-component="2"] .component-toggle{grid-template-columns:36px minmax(0,1fr) 60px 18px!important}
+ #components .component-item[data-component="2"] .heat-mini{width:60px;height:48px}
+}
+@media(prefers-reduced-motion:reduce){.heat-cold-flow,.heat-hot-flow,.heat-exchanger-visual .heat-fin,.heat-sparks circle{animation:none!important}}
